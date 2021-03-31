@@ -27,10 +27,10 @@ for i in range(1, 191):
     numberBedrooms = realestatedata.cell(row=i, column=3).value;
     print(numberBedrooms);
    
-#type, description, number of bedrooms, price
+
 houseprice=(price,houseType,description,numberBedrooms)
 #print(houseprice)
 
 
-# next goal = deposit this data into a data structure
+
 
