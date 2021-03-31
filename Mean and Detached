@@ -1,0 +1,48 @@
+import openpyxl
+wb = openpyxl.load_workbook('realestatedata (1).xlsx')
+mysheets = wb.sheetnames
+
+print("print all sheets in Excel Workbook")
+for i in mysheets:
+  print(i)
+
+realestatedata = wb['Dhruv']
+
+print("print type sheet")
+print(type(realestatedata))
+print("sheet name") 
+print(realestatedata.title)
+
+print("Value of A1")
+data1 = realestatedata['A1']
+print(data1.value)
+
+data = ["start"]
+
+for i in range(1, 190):
+    price = realestatedata.cell(row=i, column=4).value
+    print(price)
+    houseType = realestatedata.cell(row=i, column=1).value
+    print(houseType)
+    description = realestatedata.cell(row=i, column=2).value
+    print(description)
+    numberBedrooms = realestatedata.cell(row=i, column=3).value
+    print(numberBedrooms)
+
+    sold=(price,houseType,description,numberBedrooms)
+    data.append(sold)    
+    
+
+ad = 0
+cou = 0
+print("All the records containing detached and has no none value in Price:")        
+for j in data:
+    if j[0] is not None and j[1] == "Detached":
+        print(j[0])
+        ad  += j[0]
+        cou += 1
+print("Average of the price column:",ad/cou)
+
+   
+       
+            
