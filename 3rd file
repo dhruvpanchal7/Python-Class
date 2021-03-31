@@ -1,0 +1,36 @@
+import openpyxl
+wb = openpyxl.load_workbook('realestatedata.xlsx')
+mysheets = wb.sheetnames
+
+print("print all sheets in Excel Workbook")
+for i in mysheets:
+  print(i)
+
+realestatedata = wb['Dhruv']
+
+print("print type sheet")
+print(type(realestatedata))
+print("sheet name") 
+print(realestatedata.title)
+
+print("Value of A1")
+data1 = realestatedata['A1']
+print(data1.value)
+
+for i in range(1, 191):
+    price = realestatedata.cell(row=i, column=4).value;
+    print(price);
+    houseType = realestatedata.cell(row=i, column=1).value;
+    print(houseType);
+    description = realestatedata.cell(row=i, column=2).value;
+    print(description);
+    numberBedrooms = realestatedata.cell(row=i, column=3).value;
+    print(numberBedrooms);
+   
+#type, description, number of bedrooms, price
+houseprice=(price,houseType,description,numberBedrooms)
+#print(houseprice)
+
+
+# next goal = deposit this data into a data structure
+
