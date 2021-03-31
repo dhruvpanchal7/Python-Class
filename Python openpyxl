@@ -1,0 +1,14 @@
+import openpyxl
+
+wb = openpyxl.load_workbook('realestatedata.xlsx')
+print(type(wb))
+
+sheets = wb.get_sheet_names()
+print("listing of sheets")
+for i in sheets:
+	print(i)
+
+sheet = wb.get_sheet_by_name('Dhruv')
+print(type(sheet))
+
+print(sheet.title)
